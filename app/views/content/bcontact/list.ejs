@@ -1,7 +1,9 @@
 <div class="'container">
     <h1>Contact List</h1>
-    <a href="/contact-add" class="btn btn-primary" role="button">
+        <% if(displayName) { %>
+        <a href="/contact-add" class="btn btn-primary" role="button">
         <i class="fas fa-plus-circle"></i> Add a Contact</a>
+        <% } %>
     <div class="row">
         <div class="col">
             <table id="contactTable" class="table table-striped table-bordered table-hover">
@@ -26,6 +28,7 @@
                             <td><%= contact[count].title %></td>
                             <td><%= contact[count].company %></td>
                             
+                            <% if(displayName) { %>
                            <td class="text-center col-1">
                                 <a href="/contact-edit/<%= contact[count]._id %>"
                                     class="btn btn-primary btn-sm">
@@ -37,6 +40,7 @@
                                     class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
+                            <% } %>
                         </tr>
                     <% } %>
                 </tbody>
